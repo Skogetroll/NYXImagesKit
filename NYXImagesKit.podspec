@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/Nyx0uf/NYXImagesKit'
   s.author   = 'Benjamin Godard'
   s.source   = { :git => 'https://github.com/Nyx0uf/NYXImagesKit.git', :tag => '2.4' }
-  s.public_header_files = "Other Sources/*.h"
+  s.public_header_files = "Other Sources/*.*"
   s.source_files = 'Categories', 'Classes', 'Helper'
   s.frameworks = 'UIKit', 'Accelerate', 'ImageIO', 'MobileCoreServices', 'QuartzCore', 'CoreImage'
   s.platform = :ios, '5.1'
