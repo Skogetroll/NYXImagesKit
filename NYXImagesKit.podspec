@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.author   = 'Benjamin Godard'
   s.source   = { :git => 'https://github.com/Nyx0uf/NYXImagesKit.git', :tag => '2.4' }
   s.source_files = 'Categories', 'Classes', 'Helper'
+  s.public_headers = "Helper/*.h"
   s.frameworks = 'UIKit', 'Accelerate', 'ImageIO', 'MobileCoreServices', 'QuartzCore', 'CoreImage'
   s.platform = :ios, '5.1'
   s.requires_arc = true

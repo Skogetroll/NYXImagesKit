@@ -8,7 +8,7 @@
 //  www.cocoaintheshell.com
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 /* Number of components for an opaque grey colorSpace = 3 */
 #define kNyxNumberOfComponentsPerGreyPixel 3

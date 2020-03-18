@@ -9,9 +9,9 @@
 
 
 #import "UIImage+Saving.h"
+#import <UIKit/UIKit.h>
 #import <ImageIO/ImageIO.h> // For CGImageDestination
 #import <MobileCoreServices/MobileCoreServices.h> // For the UTI types constants
-
 
 @interface UIImage (NYX_Saving_private)
 -(CFStringRef)utiForType:(NYXImageType)type;

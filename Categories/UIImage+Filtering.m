@@ -416,15 +416,19 @@ static int16_t __s_unsharpen_kernel_3x3[9] = {
 	/// Create an image object from the context
 	CGImageRef grayscaledImageRef = CGBitmapContextCreateImage(bmContext);
     
+    CGContextRelease(bmContext);
     // Preserve alpha channel by creating context with 'alpha only' values
     // and using it as a mask for previously generated `grayscaledImageRef`
     // based on: http://incurlybraces.com/convert-transparent-image-to-grayscale-in-ios.html
     bmContext = CGBitmapContextCreate(nil, width, height, 8, width, nil, (CGBitmapInfo) kCGImageAlphaOnly);
     CGContextDrawImage(bmContext, imageRect, [self CGImage]);
     CGImageRef mask = CGBitmapContextCreateImage(bmContext);
-    UIImage *grayscaled = [UIImage imageWithCGImage:CGImageCreateWithMask(grayscaledImageRef, mask) scale:self.scale orientation:self.imageOrientation];
+    CGImageRef maskedImage = CGImageCreateWithMask(grayscaledImageRef, mask);
+    UIImage *grayscaled = [UIImage imageWithCGImage:maskedImage scale:self.scale orientation:self.imageOrientation];
     
 	/// Cleanup
+    CGImageRelease(mask);
+    CGImageRelease(maskedImage);
 	CGImageRelease(grayscaledImageRef);
 	CGContextRelease(bmContext);
 
